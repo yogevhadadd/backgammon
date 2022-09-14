@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "3WMQJiWCa03WRxPXs5MAhwvhBkzokpdklTxa7YsE6SIy2t5QtREVPtqWpsw1aCu3goIyMCwzUgxg/yuC7coT0w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Yogev\\source\\repos\\Game\\Game\\Game1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Yogev\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.15.1\\microsoft.visualstudio.azure.containers.tools.targets.1.15.1.nupkg.sha512"
+  ],
+  "logs": []
+}

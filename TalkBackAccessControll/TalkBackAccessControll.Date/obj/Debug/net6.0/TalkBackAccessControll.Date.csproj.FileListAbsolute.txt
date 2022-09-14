@@ -1,0 +1,14 @@
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\bin\Debug\net6.0\TalkBackAccessControll.Date.deps.json
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\bin\Debug\net6.0\TalkBackAccessControll.Date.runtimeconfig.json
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\bin\Debug\net6.0\TalkBackAccessControll.Date.dll
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\bin\Debug\net6.0\TalkBackAccessControll.Date.pdb
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\obj\Debug\net6.0\TalkBackAccessControll.Date.csproj.AssemblyReference.cache
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\obj\Debug\net6.0\TalkBackAccessControll.Date.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\obj\Debug\net6.0\TalkBackAccessControll.Date.AssemblyInfoInputs.cache
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\obj\Debug\net6.0\TalkBackAccessControll.Date.AssemblyInfo.cs
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\obj\Debug\net6.0\TalkBackAccessControll.Date.csproj.CoreCompileInputs.cache
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\obj\Debug\net6.0\TalkBackAccessControll.Date.dll
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\obj\Debug\net6.0\refint\TalkBackAccessControll.Date.dll
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\obj\Debug\net6.0\TalkBackAccessControll.Date.pdb
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\obj\Debug\net6.0\TalkBackAccessControll.Date.genruntimeconfig.cache
+C:\Users\Yogev\source\repos\ProjectBackGammon\TalkBackAccessControll\TalkBackAccessControll.Date\obj\Debug\net6.0\ref\TalkBackAccessControll.Date.dll

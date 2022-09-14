@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TalkBackAccessControll", "TalkBackAccessControll\TalkBackAccessControll.csproj", "{B9FA482A-D670-4D85-B9ED-0DF887F28ABD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TalkBackAccessControll.Date", "TalkBackAccessControll.Date\TalkBackAccessControll.Date.csproj", "{CF2A6F88-1074-4581-813B-11C62CEC2584}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9FA482A-D670-4D85-B9ED-0DF887F28ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9FA482A-D670-4D85-B9ED-0DF887F28ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9FA482A-D670-4D85-B9ED-0DF887F28ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9FA482A-D670-4D85-B9ED-0DF887F28ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF2A6F88-1074-4581-813B-11C62CEC2584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF2A6F88-1074-4581-813B-11C62CEC2584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF2A6F88-1074-4581-813B-11C62CEC2584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF2A6F88-1074-4581-813B-11C62CEC2584}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80A7F882-40BD-432B-953C-ED987F3EA8CA}
+	EndGlobalSection
+EndGlobal
