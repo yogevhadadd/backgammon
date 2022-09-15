@@ -1,0 +1,29 @@
+<div class="mainDiv {{game}}">
+  <div class="chatColor {{game}}">
+    <div id="title" class="{{game}}">Chat BackGammon</div>
+    <div id="onlyChat">
+      <div id="messageDiv">
+        <div id="againtsUser">
+          <p>{{_hubChat.againtsUser}}</p>
+          <img src="{{_hubChat.firstPic}}">
+        </div>
+        <div *ngFor='let Message of _hubChat.messages' >
+          <div class="d-flex justify-content-end">
+            <div id="messageHelpPink"></div>
+            <div  *ngIf="Message.fromUser == user" class="pink message">{{Message.message}}</div>
+          </div>
+          <div *ngIf="Message.fromUser != user" class="d-flex flex-row">
+            <div class="message green">{{Message.message}}</div>
+            <div id="messageHelpGreen"></div>
+          </div>
+        </div>
+      </div>
+      <div id="sendMessage">
+        <label for="name"></label>
+        <input type="text" name="name" #nameInput (keydown.enter)="sendMessage(nameInput.value)"/>
+        <button (click)="sendMessage(nameInput.value)">Send</button>
+      </div>
+    </div> 
+  </div>
+</div>
+  

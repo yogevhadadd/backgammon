@@ -1,0 +1,79 @@
+* { box-sizing: border-box; }
+
+body { 
+  font-family: sans-serif;
+  background:green;
+  color:white;
+}
+
+.scene {
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  perspective:600px;
+}
+
+.rollBtn{
+  background:black;
+  color:white;
+  border:none;
+  margin:auto 0;
+  font-size:1.5em;
+  margin-top:1em;
+  width:50px;
+}
+
+.cube {
+  width:50px;
+  height: 50px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform 1s;
+}
+ 
+.red{
+  background: brown;  opacity: 0.75;
+}
+.black{
+  background: black;  opacity: 0.75;
+
+}
+
+.cube.show-login-1  { transform: rotateY(0deg) rotateX(0deg)  ; }
+.cube.show-login-2  { transform: rotateY(60deg) rotateX(60deg) ; }
+.cube.show-login-3  { transform: rotateY(120deg) rotateX(120deg) ; }
+.cube.show-login-4  { transform:  rotateY(180deg) rotateX(180deg)  ; }
+.cube.show-login-5  { transform:  rotateY(240deg) rotateX(240deg) ; }
+.cube.show-login-6  { transform:  rotateY(360deg) rotateX(360deg)  ; }
+
+
+
+.cube.show-1  { transform: translateZ(-25px) rotateY(720deg)  rotateX(7200deg); }
+.cube.show-2  { transform: translateZ(-25px) rotateY(-900deg) rotateX(7200deg); }
+.cube.show-3  { transform: translateZ(-25px) rotateY(-810deg) rotateX(7200deg); }
+.cube.show-4  { transform: translateZ(-25px) rotateY(810deg)  rotateX(7200deg); }
+.cube.show-5  { transform: translateZ(-25px) rotateX(-810deg) rotateY(7200deg); }
+.cube.show-6  { transform: translateZ(-25px) rotateX(810deg)  rotateY(7200deg); }
+
+.cube__face {
+  position: absolute;
+  width: 8vh;
+  height: 8vh;
+  border: 4px solid white;
+  line-height: 8vh;
+  font-size: 1.5vh;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  font-size: 4vh;
+}
+
+ .cube__face--1  { transform: rotateY(  0deg) translateZ(4vh); }
+.cube__face--2   { transform: rotateY(180deg) translateZ(4vh); }
+.cube__face--3  { transform: rotateY( 90deg) translateZ(4vh); }
+.cube__face--4   { transform: rotateY(-90deg) translateZ(4vh); }
+.cube__face--5   { transform: rotateX( 90deg) translateZ(4vh); }
+.cube__face--6 { transform: rotateX(-90deg) translateZ(4vh); } 
+
+label { margin-right: 10px; }

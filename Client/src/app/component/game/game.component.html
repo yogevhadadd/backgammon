@@ -1,0 +1,104 @@
+<div  class="container" >
+  <div><img class="imgPlayers" src="{{gameConnectionService.firstPic}}"></div>
+    
+  
+
+
+  <div>
+    <div class="controll {{gameConnectionService.gameStatus.myColor}}">
+      <div><app-cube [color] = "'red'" [active]="false" [currentClass]=" 'show-' + gameConnectionService.gameStatus.cube[2]"></app-cube></div>
+      <div><app-cube [color] = "'black'" [active]="false" [currentClass]=" 'show-' + gameConnectionService.gameStatus.cube[0]"></app-cube></div>
+      <div class="{{gameConnectionService.gameStatus.myTurn ? 'show': 'dontShow'}} d-flex align-items-center" *ngIf="gameConnectionService.gameStatus.myTurn"  >
+        <button class="{{gameConnectionService.gameStatus.canRole ? 'show': 'dontShow'}} click{{gameConnectionService.gameStatus.myColor}}" (click)="RoleCubes()">role</button>
+        <button class="{{gameConnectionService.gameStatus.canRole ? 'dontShow': 'show'}} click{{gameConnectionService.gameStatus.myColor}}">role</button>
+        <button class="click{{gameConnectionService.gameStatus.myColor}}" (click)="Undo()">undo</button>
+      </div>
+      <div class="d-flex align-items-center {{gameConnectionService.gameStatus.myTurn ? 'dontShow': 'show'}}" *ngIf="!gameConnectionService.gameStatus.myTurn">
+        <button class="click{{gameConnectionService.gameStatus.myColor}}">role</button>
+        <button class="click{{gameConnectionService.gameStatus.myColor}}">delete</button>
+      </div>
+      <div><app-cube [color] = "'black'" [active]="false" [currentClass]=" 'show-' + gameConnectionService.gameStatus.cube[1]"></app-cube></div>
+      <div><app-cube [color] = "'red'" [active]="false" [currentClass]=" 'show-' + gameConnectionService.gameStatus.cube[3]"></app-cube></div>
+    </div>
+  
+    <div cdkDropListGroup  class="categories" >
+      <ng-container style="width: 87.5vh;" *ngFor="let item of gameConnectionService.gameStatus.GetLocation(); let i = index">
+        
+        <div *ngIf="i == 6" class="divWall">
+          <div class="wall borderTopWall"></div>
+          <div class="picesOfBoard"  cdkDropList style="justify-content:flex-start;" [cdkDropListData]="{index:50}" (cdkDropListDropped)="OnDrop($event)">
+            <div class="circle white" cdkDrag (cdkDragMoved)="OnMove(50)" *ngFor="let animal of gameConnectionService.gameStatus.listWhite"></div>
+          </div>
+        </div>
+        <div *ngIf="i == 18" class="divWall">
+          <div class="picesOfBoard" cdkDropList [cdkDropListData]="{index:50}" (cdkDropListDropped)="OnDrop($event)">
+            <div class="circle black" cdkDrag (cdkDragMoved)="OnMove(50)" *ngFor="let animal of gameConnectionService.gameStatus.listblack"></div>
+          </div>
+          <div class="wall borderBottomWall" ></div>
+        </div>
+  
+        <div class="divWall" *ngIf="i<12"> 
+          <div *ngIf="i%2 == 1"> 
+            <div class="wall borderTopWall">{{i + 1}}</div>
+            <div class="arrow-up-bottom-white {{gameConnectionService.gameStatus.show[i]}}" cdkDropList
+              cdkDropListOrientation="horizontal" [cdkDropListData]="{item:item,index:i}" (cdkDropListDropped)="OnDrop($event)"> 
+              <div class="divHelp" style="height: 25vh;" >
+                <div id="{{item.color}}" cdkDragPreviewClass="{{item.color}}" (cdkDragMoved)="OnMove(i)"  class="circle {{item.color}}" cdkDrag *ngFor="let animal of NumSequence(gameConnectionService.gameStatus.GetOneLocation(i).amount)">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="i%2 == 0">
+            <div class="wall borderTopWall">{{i + 1}}</div>
+            <div class="arrow-up-bottom {{gameConnectionService.gameStatus.show[i]}}" cdkDropList
+              cdkDropListOrientation="horizontal" [cdkDropListData]="{item:item,index:i}" (cdkDropListDropped)="OnDrop($event)">     
+              <div class="divHelp" style="height: 25vh; " >
+                <div id="{{item.color}}" cdkDragPreviewClass="{{item.color}}" (cdkDragMoved)="OnMove(i)" class="circle  {{item.color}}" cdkDrag *ngFor="let animal of NumSequence(gameConnectionService.gameStatus.GetOneLocation(i).amount)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-end divWall" *ngIf="i > 11">
+          <div *ngIf="i>11">
+            <div *ngIf="i%2 == 0">
+              <div class="arrow-up-top-white {{gameConnectionService.gameStatus.show[23 - (i - 12)]}} " cdkDropList  cdkDropListOrientation="horizontal"
+                [cdkDropListData]="{item:item,index:23 - (i - 12)}" (cdkDropListDropped)="OnDrop($event)">   
+                <div class="divHelpBottom">
+                  <div *ngIf="i>11">
+                    <div cdkDragPreviewClass="{{gameConnectionService.gameStatus.GetOneLocation(23 - (i - 12)).color}}"  id="{{gameConnectionService.gameStatus.GetOneLocation(23 - (i - 12)).color}}" cdkDrag  
+                      (cdkDragMoved)="OnMove((23 - (i - 12) ))"   class=" circle {{gameConnectionService.gameStatus.GetOneLocation(23 - (i - 12)).color}}" *ngFor="let animal of NumSequence(gameConnectionService.gameStatus.GetOneLocation(23 - (i - 12)).amount)">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wall borderBottomWall">{{23 - (i - 12) +1}}</div>
+            </div>
+            <div *ngIf="i%2 == 1">
+              <div class="arrow-up-top {{gameConnectionService.gameStatus.show[23 - (i - 12)]}}" cdkDropList  cdkDropListOrientation="horizontal"
+                  [cdkDropListData]="{item:item,index:23 - (i - 12)}" (cdkDropListDropped)="OnDrop($event)">    
+                <div class="divHelpBottom">
+                  <div *ngIf="i>11">
+                    <div (cdkDragMoved)="OnMove(23 - (i - 12))" cdkDragPreviewClass="{{gameConnectionService.gameStatus.GetOneLocation(23 - (i - 12)).color}}"  id="{{gameConnectionService.gameStatus.GetOneLocation(23 - (i - 12)).color}}" cdkDrag  class="circle {{gameConnectionService.gameStatus.GetOneLocation(23 - (i - 12)).color}}"  *ngFor="let animal of NumSequence(gameConnectionService.gameStatus.GetOneLocation(23 - (i - 12)).amount)">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wall borderBottomWall">{{23 - (i - 12) +1}}</div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="i == 23" class="canThrow{{gameConnectionService.gameStatus.show[24]}}"  style=" height: 10.5vh; width: 100%; " cdkDropList [cdkDropListData]="{index:200}" (cdkDropListDropped)="OnDrop($event)" >
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div><img class="imgPlayers" src="{{gameConnectionService.secondPic}}"></div>
+</div>
+
+<div class="vs">VS</div>
+<img class = "startGameLeft"  src="{{gameConnectionService.firstPic}}">
+<img class = "startGameRight" src="{{gameConnectionService.secondPic}}">
+<div class="myDIV"><h5 class="text">Chat</h5></div>
+<div class="hide"><app-chat [game]="'game'"></app-chat></div>
+  

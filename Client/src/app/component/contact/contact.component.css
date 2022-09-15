@@ -1,0 +1,70 @@
+.title{
+    display: flex;
+    justify-content: center;
+    font-size: 1.7vw;
+}
+table{
+    width: 20vw; 
+    border: 0.15vw solid black;
+    background-color: brown;
+}
+.tdBorderRight{
+    border-right: 0.15vw solid black;
+    width: 2vw;
+    font-size: 2.5vh;
+}
+.tdBorderTopRight{
+    border-right: 0.15vw solid black; border-top:0.15vw solid black;
+    background-color: gray
+}
+.textScreen{
+    width: 20.4vw; border-top: 0.15vw solid black;
+    background-color: rgb(205, 126, 139);
+    text-align: center;
+}
+button{
+    background-color: rgb(101, 188, 101);
+    width: 100%;
+    border: 0;
+}
+.contactContainer{
+    overflow-y: scroll; height: 30vh;
+}
+.green{
+    background-color: rgb(101, 188, 101);
+}
+td {
+    width: 4.8vw;
+    max-width: 4.8vw;
+    min-width: 4.8vw;
+    text-align: center;
+    font-size: 3vh;
+}
+tr{
+    max-width: 20vw;
+    min-width: 20vw;
+    height: 7vh;
+}
+tr:hover{
+    height: 3vh;
+    z-index: 3;
+    font-size: 4vh;
+
+}
+.bigImg{
+    width: 4.7vw; 
+    height: 7vh;
+}
+tr:hover .bigImg{
+    width: 4.7vw;
+    height: 11vh;
+    z-index: 3;
+}
+#logout{
+    border-radius: 50%;
+    border: 0.4vh solid black;
+    position: fixed; width: 10vh; height: 10vh;right: 2vh; top: 2vh;
+    background-color: rgb(185,122,87);
+    font-size: 2.5vh;
+    font-weight: bold;
+}

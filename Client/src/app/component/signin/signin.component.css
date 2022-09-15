@@ -1,0 +1,62 @@
+
+
+
+#mainDiv{
+  background: -webkit-linear-gradient(left, rgb(185,122,87), rgba(75, 22, 7, 0.468), rgb(185,122,87));
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  height: 100vh;
+}
+.ColorSignIn{
+  background-color: rgb(185,122,87);
+  width: 31vw;
+}
+.colorLogin{
+  background: -webkit-linear-gradient(left, rgb(185,122,87), rgba(75, 22, 7, 0.468), rgb(185,122,87));
+  height: 100vh;
+  width: 40vw;
+  justify-content: center;
+  display: flex;
+}
+#signInDiv{
+  margin-top: 20vh; 
+  width: 20vw; 
+  height: 41vh; 
+  background-color: brown;
+  border-radius: 8%; 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.divSign{
+  width: 16vw;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  font-size: 2.6vh;
+}
+
+input{
+  font-size: 2vh;
+}
+
+
+
+
+
+
+
+form{
+  align-items: center;  flex-direction: column; display: flex;
+}
+
+
+
+input{
+  width: 10vw;
+  height: 3vh;
+}
+label{
+  width: 6vw;
+}

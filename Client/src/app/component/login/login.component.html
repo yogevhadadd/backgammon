@@ -1,0 +1,33 @@
+<div class="min-vw-100 container">
+  <div  class="contact">  
+    <app-contact ></app-contact> 
+  </div> 
+  <div>
+    <div class="divLogin">
+      <div class="divCube" >
+        <app-cube [color]="'red'"></app-cube>
+        <app-cube [color]="'black'"></app-cube>
+      </div>
+      <div class="propDiv">
+        <div><p class="fontText">Login</p></div>
+        <div class="divUser">
+          <div class="d-flex align-items-center flex-column mb-3">
+            <label class="fontText w-100 text-center m-0" for="email">UserName:</label>
+            <input style=" width: 12vw; " type="text" placeholder="UserName"  name="email" [(ngModel)]="loginRequest.userName" required #email="ngModel" />
+          </div>
+          <div class="d-flex align-items-center flex-column " >
+            <label class="fontText w-100 text-center m-0" for="email">Password:</label>
+            <input  style="width: 12vw;" type="password" placeholder="password" name="password" [(ngModel)]="loginRequest.password" required #password="ngModel" />
+          </div>
+        </div>
+        <button (click)="onSubmit()">Login</button>
+        <div>dont have user:<a routerLink="/register">register</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="divPic">
+    <div style="padding-top: 10vh;"><img src="assets\pic\backgammonkaplama(2).jpg" alt="text"></div>
+    <div style="padding-top: 10vh;"><img src="assets\pic\backgammonkaplama.jpg" alt="text"></div>
+  </div>
+</div>
+
