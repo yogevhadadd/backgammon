@@ -1871,11 +1871,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\HomeAccessControll\\HomeAccessControll.Data\\HomeAccessControll.Data.csproj",
+      "projectUniqueName": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\ContactAccessControll\\HomeAccessControll.Data\\HomeAccessControll.Data.csproj",
       "projectName": "HomeAccessControll.Data",
-      "projectPath": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\HomeAccessControll\\HomeAccessControll.Data\\HomeAccessControll.Data.csproj",
+      "projectPath": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\ContactAccessControll\\HomeAccessControll.Data\\HomeAccessControll.Data.csproj",
       "packagesPath": "C:\\Users\\Yogev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\HomeAccessControll\\HomeAccessControll.Data\\obj\\",
+      "outputPath": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\ContactAccessControll\\HomeAccessControll.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Yogev\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1944,7 +1944,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -4,27 +4,30 @@
     font-size: 1.7vw;
 }
 table{
-    width: 20vw; 
+    width: 15vw; 
     border: 0.15vw solid black;
-    background-color: brown;
+    background-color: white;
 }
 .tdBorderRight{
     border-right: 0.15vw solid black;
     width: 2vw;
     font-size: 2.5vh;
 }
-.tdBorderTopRight{
-    border-right: 0.15vw solid black; border-top:0.15vw solid black;
-    background-color: gray
-}
+
 .textScreen{
     width: 20.4vw; border-top: 0.15vw solid black;
     background-color: rgb(205, 126, 139);
     text-align: center;
 }
 button{
-    background-color: rgb(101, 188, 101);
-    width: 100%;
+    /* background-color: rgb(101, 188, 101);
+    width: 100%; */
+    width: 3vw;
+    max-width: 3vw;
+    min-width: 3vw;
+    height: 2vh;
+    max-height: 2vh;
+    min-height: 2vh;
     border: 0;
 }
 .contactContainer{
@@ -34,32 +37,36 @@ button{
     background-color: rgb(101, 188, 101);
 }
 td {
-    width: 4.8vw;
-    max-width: 4.8vw;
-    min-width: 4.8vw;
+    width: 5vw;
+    max-width: 5vw;
+    min-width: 5vw;
     text-align: center;
-    font-size: 3vh;
+    font-size: 2.5vh;
 }
 tr{
-    max-width: 20vw;
-    min-width: 20vw;
+    max-width: 15vw;
+    min-width: 15vw;
     height: 7vh;
+    border-bottom: 0.15vw solid black;
 }
 tr:hover{
     height: 3vh;
     z-index: 3;
     font-size: 4vh;
-
+    border-radius: 50%;
 }
 .bigImg{
     width: 4.7vw; 
     height: 7vh;
+    border-radius: 50%;
 }
-tr:hover .bigImg{
+#divImg:hover .bigImg{
     width: 4.7vw;
     height: 11vh;
     z-index: 3;
+    display: flex;
 }
+
 #logout{
     border-radius: 50%;
     border: 0.4vh solid black;
@@ -68,3 +75,6 @@ tr:hover .bigImg{
     font-size: 2.5vh;
     font-weight: bold;
 }
+::-webkit-scrollbar{
+    display: none; 
+  }

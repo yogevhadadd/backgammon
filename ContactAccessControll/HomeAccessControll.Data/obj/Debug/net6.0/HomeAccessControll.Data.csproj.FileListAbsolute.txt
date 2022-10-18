@@ -26,3 +26,17 @@ C:\Users\Yogev\source\repos\ProjectBackGammon\HomeAccessControll\HomeAccessContr
 C:\Users\Yogev\source\repos\ProjectBackGammon\HomeAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\HomeAccessControll.Data.pdb
 C:\Users\Yogev\source\repos\ProjectBackGammon\HomeAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\HomeAccessControll.Data.genruntimeconfig.cache
 C:\Users\Yogev\source\repos\ProjectBackGammon\HomeAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\ref\HomeAccessControll.Data.dll
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\bin\Debug\net6.0\HomeAccessControll.Data.deps.json
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\bin\Debug\net6.0\HomeAccessControll.Data.runtimeconfig.json
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\bin\Debug\net6.0\HomeAccessControll.Data.dll
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\bin\Debug\net6.0\HomeAccessControll.Data.pdb
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\HomeAccessControll.Data.csproj.AssemblyReference.cache
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\HomeAccessControll.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\HomeAccessControll.Data.AssemblyInfoInputs.cache
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\HomeAccessControll.Data.AssemblyInfo.cs
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\HomeAccessControll.Data.csproj.CoreCompileInputs.cache
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\HomeAccessControll.Data.dll
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\refint\HomeAccessControll.Data.dll
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\HomeAccessControll.Data.pdb
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\HomeAccessControll.Data.genruntimeconfig.cache
+C:\Users\Yogev\source\repos\ProjectBackGammon\ContactAccessControll\HomeAccessControll.Data\obj\Debug\net6.0\ref\HomeAccessControll.Data.dll
