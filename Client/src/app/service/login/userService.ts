@@ -27,7 +27,7 @@ export class UserService {
       }).subscribe({
         next: (response: Token) => {
           this.LoginSuccess(response)
-          this.router.navigate(["/"]);
+          this.router.navigate(["/contact"]);
         }
     })
   }
@@ -37,7 +37,7 @@ export class UserService {
       }).subscribe({
         next: (response: Token) => {
           this.LoginSuccess(response)
-          this.router.navigate(["/"]);
+          this.router.navigate(["/contact"]);
         }
     })
   }

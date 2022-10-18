@@ -6,7 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './component/contact/contact.component';
-import { SigninComponent } from './component/signin/signin.component';
 import { LoginComponent } from './component/login/login.component';
 import { ChatComponent } from './component/chat/chat.component';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -20,7 +19,6 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    SigninComponent,
     LoginComponent,
     ContactComponent,
     ChatComponent,

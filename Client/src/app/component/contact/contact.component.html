@@ -1,44 +1,39 @@
+  
   <div class="title">Contact Connected</div>
-  <table>
-    <div>
-      <td class="tdBorderRight">picture</td>
-      <td class="tdBorderRight">contact</td>
-      <td class="tdBorderRight">chat request</td>
-      <td >game request</td>
-    </div> 
-    <div style="width: 20vw;" *ngIf="!isUserAuthenticated()"> 
-      <div class="textScreen" style="width: 20vw;">you offline</div>
-      <div style="overflow-y: scroll; height: 65vh;">
-        <div *ngFor="let player of allContact">
-          <div  *ngIf="player != myUser">
-            <tr> 
-              <td class="tdBorderTopRight"><img class="bigImg" src="{{player?.profilePic}}"></td>
-              <td class="tdBorderTopRight">{{player.displayName}}</td>
-              <td class="tdBorderTopRight">-----</td>
-              <td class="tdBorderTopRight">-----</td>
-            </tr>
+    <div  style="background-color: white; width: 20vw;">
+      <div style="width: 20vw;" *ngIf="!isUserAuthenticated()"> 
+        <div style="overflow-y: scroll; height: 65vh;">
+          <div *ngFor="let player of allContact">
+            <div id="divImg" style=" display: flex; flex-direction: row;  align-items: center;"  *ngIf="player != myUser">
+                <div style="width: 35%;"><img class="bigImg" src="{{player?.profilePic}}"></div>
+                <div style="width: 63%;" class="row">
+                  <div style="display: flex; flex-direction: column;">
+                    <div>{{player.displayName}}</div>
+                  </div>
+                </div>
+                <div style="background-color:gray; height:2.5vh; width: 2.5vh; border-radius: 50%;"></div>
+            </div>
           </div>
-        </div>
-      </div> 
+        </div> 
+      </div>
     </div>
     <div *ngIf="isUserAuthenticated()">  
       <button id="logout" (click)="Logout()">logout</button>
-      <div class="textScreen">online contact</div>
       <div class="contactContainer">
         <div *ngFor="let contact of _hubContact.listContact">
           <div *ngIf="contact.online">
             <div *ngIf="contact.displayName != myUser"> 
               <tr>
-                <td class="tdBorderTopRight" ><img class="bigImg" src="{{contact?.profilePic}}"></td>
-                <td class="tdBorderTopRight green">{{contact.displayName}}</td>
-                <td class="tdBorderTopRight green"><button (click)="SendRequestMessage(contact.displayName)">Chat</button></td>
-                <td class="tdBorderTopRight green"><button (click)="SendRequestGame(contact.displayName)">game</button></td>
+                <td><img class="bigImg" src="{{contact?.profilePic}}"></td>
+                <td>{{contact.displayName}}</td>
+                <td><button (click)="SendRequestMessage(contact.displayName)">Chat</button></td>
+                <td><button (click)="SendRequestGame(contact.displayName)">game</button></td>
+                <div style="width: 1vw; background-color:green; height:1vw; border-radius: 50%;"></div>
               </tr>
             </div>
           </div>
         </div>
       </div>
-      <div class="textScreen">offline contact</div>
       <div class="contactContainer">
         <div *ngFor="let contact of _hubContact.listContact">
           <div *ngIf="contact.displayName!= myUser">
@@ -46,12 +41,10 @@
               <tr>
                 <td class="tdBorderTopRight"><img class="bigImg"  src="{{contact?.profilePic}}"></td>
                 <td class="tdBorderTopRight">{{contact.displayName}}</td>
-                <td class="tdBorderTopRight">-----</td>
-                <td class="tdBorderTopRight">-----</td>
+                <div style="width: 1vw; background-color:gray; height:1vw; border-radius: 50%;"></div>
               </tr>
             </div>
           </div>
         </div>
       </div>
     </div>  
-  </table>

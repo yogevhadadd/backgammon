@@ -1,33 +1,34 @@
-<div class="min-vw-100 container">
-  <div  class="contact">  
-    <app-contact ></app-contact> 
-  </div> 
-  <div>
-    <div class="divLogin">
-      <div class="divCube" >
-        <app-cube [color]="'red'"></app-cube>
-        <app-cube [color]="'black'"></app-cube>
+
+ <div class="container">
+  <div class="page-container">
+    <input id="sign-in" class="tab" type="radio" name="tab" checked />
+    <label class="tab-label" for="sign-in">LOGIN</label>
+    <input id="sign-up" class="tab" type="radio" name="tab" />
+    <label class="tab-label" for="sign-up">SIGN UP</label>
+    
+    <div class="login-page">
+      <div class="sign-in-page">
+        <label class="control" for="username">USERNAME</label>
+        <input id="username" class="input" type="text" autocomplete="off" [(ngModel)]="loginRequest.userName"/>
+        <label class="control" for="password">PASSWORD</label>
+        <input id="password" class="input" type="password" [(ngModel)]="loginRequest.password"/>
+        <button  (click)="onSubmit()" class="input">SIGN IN</button>
       </div>
-      <div class="propDiv">
-        <div><p class="fontText">Login</p></div>
-        <div class="divUser">
-          <div class="d-flex align-items-center flex-column mb-3">
-            <label class="fontText w-100 text-center m-0" for="email">UserName:</label>
-            <input style=" width: 12vw; " type="text" placeholder="UserName"  name="email" [(ngModel)]="loginRequest.userName" required #email="ngModel" />
-          </div>
-          <div class="d-flex align-items-center flex-column " >
-            <label class="fontText w-100 text-center m-0" for="email">Password:</label>
-            <input  style="width: 12vw;" type="password" placeholder="password" name="password" [(ngModel)]="loginRequest.password" required #password="ngModel" />
-          </div>
-        </div>
-        <button (click)="onSubmit()">Login</button>
-        <div>dont have user:<a routerLink="/register">register</a></div>
+      
+      <div class="sign-up-page">
+        <label class="control" for="new-username">USERNAME</label>
+        <input id="new-username" class="input" type="text" autocomplete="off" [(ngModel)]="signIn.UserName"/>
+        <label class="control" for="new-password">PASSWORD</label>
+        <input id="new-password" class="input" type="password" [(ngModel)]="signIn.Passwors"/>
+        <label class="control" for="repeat-password">Display Name</label>
+        <input id="repeat-password" class="input" type="password" [(ngModel)]="signIn.DisplayName"/>
+        <label class="control" for="profilePic">IMAGE</label>
+        <span class="input">
+          <input #file type="file" class="input" autocomplete="off" name="theFile"/>
+        </span>
+        <button (click)="register(file.files)" class="input">SIGN UP</button>
+        <label class="already-member" for="sign-in">Already a Member?</label>
       </div>
     </div>
   </div>
-  <div class="divPic">
-    <div style="padding-top: 10vh;"><img src="assets\pic\backgammonkaplama(2).jpg" alt="text"></div>
-    <div style="padding-top: 10vh;"><img src="assets\pic\backgammonkaplama.jpg" alt="text"></div>
-  </div>
 </div>
-

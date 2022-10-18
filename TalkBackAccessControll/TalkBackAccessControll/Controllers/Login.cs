@@ -2,6 +2,13 @@
 using System.Net.Http.Headers;
 using TalkBackAccessControll.Date.Models;
 using TalkBackAccessControll.Date.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.IdentityModel.Tokens;
+using RestSharp;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net;
+using System.Security.Claims;
+using System.Text;
 
 namespace TalkBackAccessControll.Controllers
 {
@@ -36,8 +43,8 @@ namespace TalkBackAccessControll.Controllers
                 var formCollection = await Request.ReadFormAsync();
                 var file = formCollection.Files.First();
                 var folderName = Path.Combine("Resources", "Images");
-                var pathToSave = "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\Client\\project-client\\src\\assets\\pic";
-                var pathToSaveUser = "assets\\pic";
+                var pathToSave = "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\Client\\src\\assets\\img";
+                var pathToSaveUser = "assets\\img";
                 if (file.Length > 0)
                 {
                     var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');

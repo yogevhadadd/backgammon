@@ -8057,11 +8057,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\HomeAccessControll\\HomeAccessControll\\HomeAccessControll.csproj",
+      "projectUniqueName": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\ContactAccessControll\\HomeAccessControll\\HomeAccessControll.csproj",
       "projectName": "HomeAccessControll",
-      "projectPath": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\HomeAccessControll\\HomeAccessControll\\HomeAccessControll.csproj",
+      "projectPath": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\ContactAccessControll\\HomeAccessControll\\HomeAccessControll.csproj",
       "packagesPath": "C:\\Users\\Yogev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\HomeAccessControll\\HomeAccessControll\\obj\\",
+      "outputPath": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\ContactAccessControll\\HomeAccessControll\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Yogev\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8078,8 +8078,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\HomeAccessControll\\HomeAccessControll.Data\\HomeAccessControll.Data.csproj": {
-              "projectPath": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\HomeAccessControll\\HomeAccessControll.Data\\HomeAccessControll.Data.csproj"
+            "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\ContactAccessControll\\HomeAccessControll.Data\\HomeAccessControll.Data.csproj": {
+              "projectPath": "C:\\Users\\Yogev\\source\\repos\\ProjectBackGammon\\ContactAccessControll\\HomeAccessControll.Data\\HomeAccessControll.Data.csproj"
             }
           }
         }
@@ -8147,7 +8147,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.305\\RuntimeIdentifierGraph.json"
       }
     }
   },
