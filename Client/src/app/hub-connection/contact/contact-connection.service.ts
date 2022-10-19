@@ -33,15 +33,6 @@ export class ContactConnectionService {
     this._hubConnection.on('SendListConnect', (listConnect: any) => {
         this.listContact = listConnect;
     });
-    this._hubConnection.on('ReceiveChatRequest', (againtsPlayer:any) => {
-      if (window.confirm(againtsPlayer +" invite you to chat") == true) {
-        this._hubConnection?.invoke("AcceptRequestChat", againtsPlayer);
-      } 
-    })
-    this._hubConnection.on('AcceptChatRequest', () =>{
-        window.open("http://localhost:4200/chat")
-    })
-
     this._hubConnection.on('ReceiveGameRequest', (againtsPlayer:any) => {
           if (confirm(againtsPlayer +" invite you to game") == true) {
             this._hubConnection?.invoke("AcceptRequestGame", againtsPlayer);
@@ -51,12 +42,13 @@ export class ContactConnectionService {
         window.open("http://localhost:4200/game")
     })
   }
-  public  async sendMessageRequest(user: string) {
-    this._hubConnection?.invoke("SendChatRequest", user);
-  }
-  public  async sendGameRequest(user: string) {
-    this._hubConnection?.invoke("SendGameRequest", user);
-  }
+ 
+  // public async sendMessageRequest(user: string) {
+  //   this._hubConnection?.invoke("SendChatRequest", user);
+  // }
+  // public  async sendGameRequest(user: string) {
+  //   this._hubConnection?.invoke("SendGameRequest", user);
+  // }
   public  async Start() {
     this._hubConnection?.invoke("GetListConnect");
   }

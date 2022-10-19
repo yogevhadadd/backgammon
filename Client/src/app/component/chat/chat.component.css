@@ -1,86 +1,70 @@
 P{
-  margin-bottom: 0;margin-top: 2vh; width: 13vw; margin-right: 0.8vw; font-size: 1.5vw; font-weight: bold;
+  margin-bottom: 0; width: 13vw; font-size: 2vw; font-weight: bold;
+}
+img{
+  width: 5.5vh; height: 5.5vh; border-left:0.25vh solid black ; border-radius: 50%;margin-right: 2vw;
+}
+input{
+  border: 0.3vh solid black; width: 60vw;height: 5vh;
+  border-radius: 2vh;
+  font-size: 2.5vh;
+  font: bold;
 }
 button{
-  border: 0.5vh solid black; 
-  border-left: 0px; 
-  border-top-right-radius: 1.5vh;  
-  border-bottom-right-radius: 1.5vh;
   text-align: center; 
   font-size: 2vh; 
   font-weight: bold; 
-  width: 5.5vw;
+  width: 2.5vw;
+  height: 2.5vw;
+  border-radius: 50%;
+  margin-right: 1vh;
+  border: 0.2vh solid black;
 }
-img{
-  width: 7vh; height: 7vh; border-left:0.25vh solid black ;
+button:hover{
+  background-color: rgb(126, 184, 126);
+}
+.messageContainer{
+  max-height: 76.3vh;min-height: 76.3vh; overflow-y: scroll;
 }
 #sendMessage{
-  display: flex; width: 20vw; margin-top: -2vh;
-}
-input{
-  border: 0.5vh solid black; border-top-left-radius: 1.5vh;  border-bottom-left-radius: 1.5vh;width: 14.5vw;
-}
-#messageDiv{
-  border: 0.3vw solid black;  
-  border-top-left-radius: 1.5vh;  
-  border-top-right-radius: 1.5vh; 
-  overflow-y: scroll;
-  margin-top: 5%; 
-  margin-bottom: 0.1vh; 
-  background-color: rgb(184, 152, 98);
-  width: 100%;
-  height: 100%;
+  display: flex; width: 65vw; justify-content: center; background-color: rgb(94, 112, 128); height: 6vh;
+  align-items: center;
 }
 #againtsUser{
   display: flex;
   justify-content: end;
   text-align: center; 
-  width: 20vw; 
-  border-bottom: 0.25vh solid black;
-}
-#title{
-  font-size: 7vh; margin-top: 10vh; text-align: center;
+  width: 65vw; 
+  min-height: 8vh;
+  background-color: rgb(94, 112, 128);
+  align-items: center
 }
 #onlyChat{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  visibility: visible;
-  margin-top: 10vh;
-  width: 20vw; height: 45vh; 
-}
-.chatColor{
-  display: flex;
-  background: -webkit-linear-gradient(left, rgb(185,122,87), rgba(75, 22, 7, 0.468), rgb(185,122,87));
-  height: 100vh;
-  width: 40vw;
-  flex-direction: column;
-  align-items: center;
+  width: 65vw; height: 90vh; 
+  background-color: rgb(231, 231, 234);
 }
 .mainDiv{
   display: flex;
   justify-content: center;
   background-color: rgb(185,122,87);
 }
-#messageHelpGreen{
-  width: 1vw; margin-top: 0.3vh; border-bottom-right-radius: 5px;border-top-right-radius: 5px;  background-color: rgb(101, 171, 92); 
-}
-#messageHelpPink{
-  width: 1vw; margin-top: 0.3vh;  border-top-left-radius: 5px; border-bottom-left-radius: 5px; background-color: rgb(208, 154, 154); 
+#messageHelpPink{ 
+  width: 1vw; margin-top: 1vh;  border-top-left-radius: 5px; border-bottom-left-radius: 5px; background-color: rgb(208, 154, 154); 
 }
 .message{
-  color: white; text-align: center; font-size: 15px; height: 3.5vh;  margin-top: 0.3vh; direction: rtl;  
+  color: white; text-align: center; font-size: 15px; height: 3.5vh;  margin-top: 1vh; direction: rtl;  
 }
 .pink{
   background-color: rgb(208, 154, 154);
+}
+#messageHelpGreen{
+  width: 1vw; margin-top: 1vh; border-bottom-right-radius: 5px;border-top-right-radius: 5px;  background-color: rgb(101, 171, 92); 
 }
 .green{
   background-color: rgb(101, 171, 92);
 }
 ::-webkit-scrollbar{
   display: none; 
-}
-.game{
-  visibility: hidden;
 }

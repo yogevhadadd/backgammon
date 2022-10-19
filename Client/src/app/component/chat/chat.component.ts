@@ -8,13 +8,17 @@ import { ChatConnectionService } from 'src/app/hub-connection/chat/chat-connecti
 })
 export class ChatComponent implements OnInit {
   @Input() game:string = "";
-  constructor(public _hubChat: ChatConnectionService) { }
+  @Input() chatUser = "";
+
+  constructor(public _hubChat: ChatConnectionService) { console.log("Sdcsdc")}
   user:any = "";
   ngOnInit(): void {
     this.user = localStorage.getItem('NickName')
     console.log(this._hubChat.firstPic)
   }
   public sendMessage(message: string)  {
-    this._hubChat.sendMessage(message);
+    if(message != ""){
+      this._hubChat.sendMessage(message,this.chatUser);
+    }
   }
 }

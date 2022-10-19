@@ -33,19 +33,22 @@ export class ChatConnectionService {
       });
   }
   private registerOnServerEvents(): void {
-    this._hubConnection.on('ReceiveMessage', (data: any,firstPic:string, secondPic:string,firstName:string,secondName:string) => {
-      if(window.localStorage.getItem('NickName') == firstName){
-          this.firstPic = secondPic;
-          this.againtsUser = secondName;
-      }
-      else{
+    this._hubConnection.on('ReceiveMessage', (data: any, firstPlayer: string, secondPlayer: string) => {
+      if(this.againtsUser == firstPlayer || this.againtsUser === secondPlayer)
+        this.messages = data;
+    });
+    
+    this._hubConnection.on('SendChat', (data: any,firstPic:string, name:string) => {
+        this.againtsUser = name;
         this.firstPic = firstPic;
-        this.againtsUser = firstName;
-      }
         this.messages = data;
     });
   }
-  public async sendMessage(msg: string) {
-    this._hubConnection?.invoke("SendMessage", msg);
+  public async sendMessage(msg: string, displayName: string) {
+    this._hubConnection?.invoke("SendMessage", msg, displayName);
   }
+  public async getChat(displayName: string,img: string) {
+    this._hubConnection?.invoke("GetChat",displayName,img);
+  }
+  
 }

@@ -65,24 +65,6 @@ namespace HomeAccessControll.HubConfig
         {
                 await Clients.All.SendAsync("SendListConnect", connectList);
         }
-        public async Task SendChatRequest(string nickName)
-        {
-            await Clients.User(GetUserWithNickName(nickName)).SendAsync("ReceiveChatRequest", Context.User.Identity.Name);
-        }
-        public async Task AcceptRequestChat(string nickName)
-        {
-            var client = new RestClient("https://localhost:7048/");
-            var request = new RestRequest("user", Method.Get);
-            var picMyUser = client.Execute<List<User>>(request).Data
-                .Select(name => new SendUser() { DisplayName = name.DisplayName, ProfilePic = name.ProfilePic, Online = true })
-                .Where(name => name.DisplayName == Context?.User?.Identity?.Name).First();
-            var picSecondUser = client.Execute<List<User>>(request).Data
-                .Select(name => new SendUser() { DisplayName = name.DisplayName, ProfilePic = name.ProfilePic, Online = true })
-                .Where(name => name.DisplayName == nickName).First();
-            OneChat oneChat = new OneChat() { FirstName = Context?.User?.Identity?.Name, SecondName = nickName, FirstPic = picMyUser.ProfilePic, SecondPic = picSecondUser.ProfilePic, FirstUserName = GetUserWithNickName(Context?.User?.Identity?.Name), SecondUserName = GetUserWithNickName(nickName) };
-            await PostChatAsync(oneChat);
-            await Clients.Users(GetUserWithNickName(Context?.User?.Identity?.Name), GetUserWithNickName(nickName)).SendAsync("AcceptChatRequest");
-        }
         public async Task SendGameRequest(string nickName)
         {
                 await Clients.User(GetUserWithNickName(nickName)).SendAsync("ReceiveGameRequest", Context.User.Identity.Name);

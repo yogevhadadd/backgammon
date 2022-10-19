@@ -11,24 +11,16 @@ namespace Chat.HubConfig
     [Authorize]
     public class ChatHub : Hub
     {
-        private static List<OneChat> chats= new List<OneChat>();
-        private static OneChat chat= new OneChat();
-        public override Task OnConnectedAsync()
-        {
-            GetSpecificChat();
-            Start();
-            return Task.CompletedTask;
-        }
-        private async void Start()
-        {
-            await Clients.Users(chat.FirstUserName, chat.SecondUserName).SendAsync("ReceiveMessage", chat.Chat,chat.FirstPic,chat.SecondPic,chat.FirstName,chat.SecondName);
-        }
-        private void GetSpecificChat()
+        private static readonly List<OneChat> chats= new ();
+        private static OneChat chat= new ();
+        
+        private void GetSpecificChat(string displayName)
         {
             if(Context != null)
             {
                 var getOneChat = from oneChat in chats
-                                 where oneChat.FirstName == Context.User.Identity.Name || oneChat.SecondName == Context.User.Identity.Name
+                                 where oneChat.FirstName == Context.User.Identity.Name && oneChat.SecondName == displayName ||
+                                 oneChat.FirstName == displayName && oneChat.SecondName == Context.User.Identity.Name
                                  select oneChat;
                 if (getOneChat.Count() > 0)
                 {
@@ -37,44 +29,25 @@ namespace Chat.HubConfig
                 }
                 else
                 {
-                    chat = GetOneChat();
+                    chat = new OneChat() { FirstName = Context.User.Identity.Name, SecondName = displayName };
+
                     chats.Add(chat);
                 }
             }
         }
-        private OneChat GetOneChat()
+        
+        public async Task SendMessage(string message, string displayName)
         {
-            var findGame = new OneChat() { FirstName = Context.User.Identity.Name };
-            var client = new RestClient("https://localhost:44347/");
-            var request = new RestRequest("Chat/GetTheChat", Method.Post);
-            request.RequestFormat = RestSharp.DataFormat.Json;
-            request.AddJsonBody(findGame);
-            var myGame = client.Execute(request);
-            var options = new JsonSerializerOptions
-            {
-                NumberHandling = JsonNumberHandling.AllowReadingFromString
-            };
-            var result = JsonSerializer.Deserialize<OneChat>(myGame.Content);
-            return result;
-        }
-        private void Save()
-        {
-            var getOneChat = from oneChat in chats
-                             where oneChat.FirstName == Context.User.Identity.Name || oneChat.SecondName == Context.User.Identity.Name
-                             select oneChat;
-            if (getOneChat.Count() > 0)
-            {
-                var aaaaa = getOneChat.First();
-                aaaaa = chat;
-                return;
-            }
-        }
-        public async Task SendMessage(string message)
-        {
-            GetSpecificChat();
+            GetSpecificChat(displayName);
             chat.Chat.Add( new ChatMessage() {fromUser = Context.User.Identity.Name, Message = message});
-            Save();
-            await Clients.Users(chat.FirstUserName, chat.SecondUserName).SendAsync("ReceiveMessage", chat.Chat, chat.FirstPic, chat.SecondPic, chat.FirstName, chat.SecondName);
+            await Clients.Users(Context.User.Identity.Name, displayName).SendAsync("ReceiveMessage", chat.Chat, Context.User.Identity.Name, displayName);
+        }
+
+        public async Task GetChat(string message,string img)
+        {
+            GetSpecificChat(message);
+            chat.FirstPic = img;
+            await Clients.Users(Context.User.Identity.Name).SendAsync("SendChat", chat.Chat, chat.FirstPic, chat.SecondName);
         }
     }
 }
