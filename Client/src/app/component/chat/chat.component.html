@@ -5,11 +5,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-  <div id="onlyChat">
-    <div id="againtsUser">
-      <p>{{chatUser}}</p>
-      <img src="{{_hubChat.firstPic}}">
-    </div>
+  <div id="againtsUser">
+    <p>{{chatUser}}</p>
+    <img src="{{_hubChat.firstPic}}">
+  </div>
+  <div *ngIf="chatOrGame" id="onlyChat">
     <div class="messageContainer">
       <div *ngFor='let Message of _hubChat.messages' >
         <div *ngIf="Message.fromUser == user" class="d-flex justify-content-end">
@@ -28,8 +28,13 @@
       <button  class="glyphicon glyphicon-play" (click)="sendMessage(nameInput.value)"></button>
       <label for="name"></label>
       <input type="text" name="name" #nameInput (keydown.enter)="sendMessage(nameInput.value)"/>
+      <img class="game" src="assets\img\backgammonkaplama(2).jpg"/>
+      <button (click)="ChangGame()"></button>
     </div>
   </div> 
+  <div style="width: 65vw; height: 82vh;" *ngIf="!chatOrGame"> 
+    <app-game [gameUser] = "chatUser"></app-game>
+  </div>
 </body>
 </html>
 

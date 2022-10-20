@@ -18,69 +18,73 @@ namespace Game.HubConfig
         private OneGame oneGame = new OneGame();
         public override async Task OnConnectedAsync()
         {
-            await StartNewGame();
             await base.OnConnectedAsync();
         }
-        public async Task Delete()
+        public async Task Delete(string displayName)
         {
-            Start();
-            if (ChackMyTurn())
+            Start(displayName);
+            if (ChackMyTurn() )
             {
                 gameService.Reset();
-                await Clients.Users(oneGame.FirstUserName, oneGame.SecondUserName).SendAsync("Delete", gameService.boardTemporary.board,
+                await Clients.Users(oneGame.FirstName, oneGame.SecondName).SendAsync("Delete", gameService.boardTemporary.board,
                     gameService.whiteListTemporary, gameService.blackListTemporary, gameService.cubesTemporary);
             }
         }
-        public async Task MyTurn(int from, int to)
+        public async Task MyTurn(int from, int to, string displayName)
         {
-            Start();
+            Start(displayName);
             if (ChackMyTurn())
             {
                 Turn turn = new() { From = from, To = to };
                 gameService.PlayTurn(turn);
-                await Clients.Users(oneGame.FirstUserName, oneGame.SecondUserName).SendAsync("PlayerTurn", gameService.boardTemporary.board,
+                await Clients.Users(oneGame.FirstName, oneGame.SecondName).SendAsync("PlayerTurn", gameService.boardTemporary.board,
                     gameService.whiteListTemporary, gameService.blackListTemporary, gameService.cubesTemporary,
                     oneGame.FirstName, gameService.showOnMoveTemp);
                 if (gameService.EndGame())
                 {
-                    await Clients.Users(oneGame.FirstUserName, oneGame.SecondUserName).SendAsync("EndGame", gameService.colorPlayer);
+                    await Clients.Users(oneGame.FirstName, oneGame.SecondName).SendAsync("EndGame", gameService.colorPlayer);
                 }
                 if (gameService.FinishTurn())
                 {
-                    await Clients.Users(oneGame.FirstUserName, oneGame.SecondUserName).SendAsync("FinishTurn");
+                    await Clients.Users(oneGame.FirstName, oneGame.SecondName).SendAsync("FinishTurn");
                     SaveGame();
                 }
                 else
                 {
-                    await PassTurn();
+                    await PassTurn(displayName);
                 }
             }
         }
-        public async Task RoleCubes()
+        public async Task RoleCubes(string displayName)
         {
-            Start();
+            Start(displayName);
+            for (int i = 0; i < 4; i++)
+            {
+                if (gameService.cubesTemporary[1] != 0) return;
+            }
             if (ChackMyTurn())
             {
-                await Clients.Users(oneGame.FirstUserName, oneGame.SecondUserName).SendAsync("role", gameService.RoleCube());
+                await Clients.Users(oneGame.FirstName, oneGame.SecondName).SendAsync("role", gameService.RoleCube());
                 Thread.Sleep(3000);
-                await PassTurn();
+                await PassTurn(displayName);
             }
         }
-        public async Task OnMove(int num)
+        public async Task OnMove(int num, string displayName)
         {
-            Start();
+            Start(displayName);
             if (ChackMyTurn())
             {
                 gameService.OnMove(num);
-                await Clients.Users(oneGame.FirstUserName, oneGame.SecondUserName).SendAsync("OnMove", gameService.showOnMoveTemp);
+                await Clients.Users(oneGame.FirstName, oneGame.SecondName).SendAsync("OnMove", gameService.showOnMoveTemp);
             }
         }
-        private void Start()
+        private void Start(string displayName)
         {
             if (Context != null)
             {
                 var getOneGame = from oneGame in listOfGames
-                                 where oneGame.FirstName == Context.User.Identity.Name || oneGame.SecondName == Context.User.Identity.Name
+                                 where oneGame.FirstName == Context.User.Identity.Name && oneGame.SecondName == displayName ||
+                                    oneGame.FirstName == displayName && oneGame.SecondName == Context.User.Identity.Name
                                  select oneGame;
                 if (getOneGame.Count() > 0)
                 {
@@ -90,8 +94,13 @@ namespace Game.HubConfig
                 }
                 else
                 {
-                    oneGame = GetOneGame();
+                    oneGame = new OneGame { FirstName = displayName ,SecondName = Context.User.Identity.Name, Name = Context.User.Identity.Name};
                     gameService = new GameService();
+                    gameService.displayNameFirst = displayName;
+                    gameService.displayNameSecond = Context.User.Identity.Name;
+                    gameService.displayNameTurn = Context.User.Identity.Name;
+                    oneGame.GameService = gameService;
+                   
                     listOfGames.Add(oneGame);
                 }
             }
@@ -108,43 +117,28 @@ namespace Game.HubConfig
                 return;
             }
         }
-        private OneGame GetOneGame()
+        private async Task PassTurn(string displayName)
         {
-            var findGame = new OneGame() { FirstName = Context.User.Identity.Name };
-            var client = new RestClient("https://localhost:7195/");
-            var request = new RestRequest("GameController/GetTheGame", Method.Post);
-            request.RequestFormat = RestSharp.DataFormat.Json;
-            request.AddJsonBody(findGame);
-            var myGame = client.Execute(request);
-            var options = new JsonSerializerOptions
-            {
-                NumberHandling = JsonNumberHandling.AllowReadingFromString
-            };
-            return JsonSerializer.Deserialize<OneGame>(myGame.Content, options);
-        }
-        private async Task PassTurn()
-        {
-            Start();
+            Start(displayName);
             if (!gameService.CanMove())
             {
-                SaveGame();
-                await Clients.Users(oneGame.FirstUserName, oneGame.SecondUserName).SendAsync("CanMove", gameService.cubesTemporary);
+                gameService.FinishTurn();
+                await Clients.Users(oneGame.FirstName, oneGame.SecondName).SendAsync("CanMove", gameService.cubesTemporary);
             }
         }
-        private async Task StartNewGame()
+        public async Task StartNewGame(string displayName)
         {
-            Start();
-            await Clients.Users(oneGame.FirstUserName, oneGame.SecondUserName).SendAsync("startGame",gameService.boardTemporary.board,
-                gameService.whiteListTemporary, gameService.blackListTemporary, gameService.cubesTemporary, oneGame.FirstName,
-                oneGame.FirstPic,oneGame.SecondPic);
+            Start(displayName);
+            await Clients.Users(oneGame.FirstName, oneGame.SecondName).SendAsync("startGame",gameService.boardTemporary.board,
+                gameService.whiteListTemporary, gameService.blackListTemporary, gameService.cubesTemporary, oneGame.SecondName);
         }
         private bool ChackMyTurn()
         {
-            if(gameService.colorPlayer == "black" && Context.User.Identity.Name == oneGame.FirstName)
+            if(gameService.colorPlayer == "black" && Context.User.Identity.Name == oneGame.SecondName && gameService.GetTurn(Context.User.Identity.Name))
             {
                 return true;
             }
-            if (gameService.colorPlayer == "white" && Context.User.Identity.Name == oneGame.SecondName)
+            if (gameService.colorPlayer == "white" && Context.User.Identity.Name == oneGame.FirstName && gameService.GetTurn(Context.User.Identity.Name))
             {
                 return true;
             }

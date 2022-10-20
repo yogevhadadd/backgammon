@@ -32,6 +32,7 @@ export class GameConnectionService {
       .start()
       .then(() => {
         console.log('Hub connection started');
+       
       })
       .catch(err => {
         console.log('Error while establishing connection, retrying...');
@@ -47,19 +48,17 @@ export class GameConnectionService {
         this.gameStatus.Change(data);
         this.showMove = true;
     });
-    this._hubConnection.on('startGame', (data: any,whiteList:any,blackList:any,cube:any,name:String,firstPic:string, secondPic:string) => {
+    this._hubConnection.on('startGame', (data: any,whiteList:any,blackList:any,cube:any,name:String) => {
       if(localStorage.getItem('NickName') == name){
-        this.gameStatus.myTurn = true;
-        this.gameStatus.canRole = true;
+        // this.gameStatus.myTurn = true;
+        // this.gameStatus.canRole = true;
         this.gameStatus.myColor = "black";
       }
       else{
-        this.gameStatus.myTurn = false;
-        this.gameStatus.canRole = false;
+        // this.gameStatus.myTurn = false;
+        // this.gameStatus.canRole = false;
         this.gameStatus.myColor = "white";
       }
-        this.firstPic = firstPic;
-        this.secondPic= secondPic;
         this.gameStatus.listWhite = whiteList;
         this.gameStatus.listblack= blackList;
         this.gameStatus.cube = cube;
@@ -93,19 +92,22 @@ export class GameConnectionService {
       confirm("END GAME!")
     })
   }
-  public async sendAction(from: number,to: number) {
-    this._hubConnection?.invoke("MyTurn", from,to);
+  public async MyTurn(from: number,to: number,displayName:string) {
+    this._hubConnection?.invoke("MyTurn", from,to,displayName);
   }
-  public async sendActionDelete() {
-    this._hubConnection?.invoke("Delete");
+  public async sendActionDelete(displayName:string) {
+    this._hubConnection?.invoke("Delete",displayName);
   }
-  public async RoleCubes() {
-    this._hubConnection?.invoke("RoleCubes");
+  public async RoleCubes(displayName:string) {
+    this._hubConnection?.invoke("RoleCubes",displayName);
   }
   public async PassTurn() {
     this._hubConnection?.invoke("PassTurn");
   }
-  public async OnMove(num:number) {
-    this._hubConnection?.invoke("OnMove",num);
+  public async OnMove(num:number,displayName:string) {
+    this._hubConnection?.invoke("OnMove",num, displayName);
+  }
+  public async StartNewGame(displayName:string) {
+    this._hubConnection?.invoke("StartNewGame",displayName);
   }
 }

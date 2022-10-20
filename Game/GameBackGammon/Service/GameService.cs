@@ -17,6 +17,9 @@ namespace Game.Service
         public bool[] showOnMoveTemp = new bool[25];
         private bool canPlay = true;
         private int deleteCube = -1;
+        public string displayNameFirst = "";
+        public string displayNameSecond = "";
+        public string displayNameTurn = "";
         private Turn turn = new Turn();
         public GameService()
         {
@@ -32,6 +35,14 @@ namespace Game.Service
             //whiteList.AddLast(true);
             //whiteList.AddLast(true);
             //whiteList.AddLast(true);
+        }
+        public bool GetTurn(string name)
+        {
+            if(name == displayNameTurn)
+            {
+                return true;
+            }
+            return false;
         }
         private void SaveDetails()
         {
@@ -60,6 +71,11 @@ namespace Game.Service
             {
                 if (cubesTemporary[i] != 0) return false;
             }
+            if (displayNameTurn == displayNameFirst)
+            {
+                displayNameTurn = displayNameSecond;
+            }
+            else displayNameTurn = displayNameFirst;
             SaveDetails();
             return true;
         }

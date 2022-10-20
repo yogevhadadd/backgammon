@@ -18,6 +18,8 @@ namespace GameBackGammon.model
         [JsonPropertyName("SecondUserName")]
         public string? SecondUserName { get; set; }
         [JsonIgnore]
+        public string? Name { get; set; }
+        [JsonIgnore]
         public GameService? GameService { get; set; } = new GameService();
         public override bool Equals(object? obj)
         {

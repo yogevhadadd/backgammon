@@ -9,16 +9,21 @@ import { ChatConnectionService } from 'src/app/hub-connection/chat/chat-connecti
 export class ChatComponent implements OnInit {
   @Input() game:string = "";
   @Input() chatUser = "";
-
-  constructor(public _hubChat: ChatConnectionService) { console.log("Sdcsdc")}
+  chatOrGame:boolean = true;
+  constructor(public _hubChat: ChatConnectionService) {}
   user:any = "";
   ngOnInit(): void {
     this.user = localStorage.getItem('NickName')
-    console.log(this._hubChat.firstPic)
   }
   public sendMessage(message: string)  {
     if(message != ""){
       this._hubChat.sendMessage(message,this.chatUser);
     }
+  }
+  public ChangGame(){
+    this.chatOrGame = false;
+  }
+  public SendGameRequest(){
+    this._hubChat.SendGameRequest(this.chatUser)
   }
 }

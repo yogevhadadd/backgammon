@@ -51,4 +51,7 @@ export class ChatConnectionService {
     this._hubConnection?.invoke("GetChat",displayName,img);
   }
   
+  public async SendGameRequest(displayName: string) {
+    this._hubConnection?.invoke("SendGameRequest",displayName);
+  }
 }

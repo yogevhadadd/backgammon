@@ -1,5 +1,5 @@
 import { CdkDragDrop} from '@angular/cdk/drag-drop';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { GameConnectionService } from 'src/app/hub-connection/game/game-connection.service';
 @Component({
   selector: 'app-game',
@@ -11,15 +11,20 @@ export class GameComponent implements OnInit {
   @ViewChild('dropListContainer') dropListContainer?: ElementRef;
   dropListReceiverElement?: HTMLElement;
   canDrop: Boolean = false;
+  @Input() gameUser = "";
 
   ngOnInit(): void {}
-  constructor(public gameConnectionService:GameConnectionService) { }
+  constructor(public gameConnectionService:GameConnectionService) {
+   }
 
   PassTurn(){
-    this.gameConnectionService.PassTurn();
+    if(this.gameConnectionService.gameStatus.myTurn){
+      this.gameConnectionService.PassTurn();
+    }
+    
   }
   Undo(){
-    this.gameConnectionService.sendActionDelete();
+      this.gameConnectionService.sendActionDelete(this.gameUser);
   }
   OnDrop(event: CdkDragDrop<any>){
     this.gameConnectionService.showMove = true;
@@ -30,18 +35,19 @@ export class GameComponent implements OnInit {
       this.gameConnectionService.gameStatus.show[i] = false;
     }
     if(this.canDrop){
-      this.gameConnectionService.sendAction(event.previousContainer.data.index, event.container.data.index);
+      this.gameConnectionService.MyTurn(event.previousContainer.data.index, event.container.data.index, this.gameUser);
       this.canDrop = false;
-    }
+      }
+    
   }
   OnMove(event: number){
     if(this.gameConnectionService.showMove){
-      this.gameConnectionService.OnMove(event);
+      this.gameConnectionService.OnMove(event,this.gameUser);
       this.gameConnectionService.showMove = false;
     }
   }
   RoleCubes(){
-    this.gameConnectionService.RoleCubes();
+    this.gameConnectionService.RoleCubes(this.gameUser);
   }
   NumSequence(num?: number): Array<number> {
     return Array(num);
