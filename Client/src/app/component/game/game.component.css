@@ -4,11 +4,10 @@
 .controll{
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   height: 8vh; 
-  background-color: rgb(94, 112, 128);
+  background-color: black;
   width: 65vw;
-  align-items: flex-end;
 }
 .divWall{
   width: 5vw; 
@@ -36,90 +35,9 @@
   width: 65vw;
   height: 82vh;
 } 
-.hide {
-  display: none;
-  position: fixed; 
-  right: -5vw; 
-  top: -20vh;
-}
-.hide:hover{
-  display: block;
-  color: red;
-  position: fixed; 
-  right: -5vw; 
-  top: -20vh;
-} 
-.startGameLeft{
-  position: fixed; width: 20vh; height: 20vh;right: 105vh; top: 40vh; 
-  animation-name: startGameLeft;
-  animation-duration: 4s;
-  visibility: hidden;
-}
-.vs{
-  position: fixed; width: 20vh; height: 20vh;right: 95vh; top: 40vh; 
-  font-size: 14vh;
-  font-weight: bold;
-  text-align: center;
-  animation-name: vs;
-  animation-duration: 4s;
-  visibility: hidden;
-}
-@keyframes vs {
-  from {visibility: visible;}
-  to {visibility: hidden;}
-}
-@keyframes startGameLeft {
-  from {right: 105vh;visibility: visible;}
-  to {right: 190vh;visibility: visible;}
-}
-.startGameRight{
-  position: fixed; width: 20vh; height: 20vh;right: 75vh; top: 40vh; 
-  animation-name: startGameRight;
-  animation-duration: 4s;
-  visibility: hidden;
-}
-@keyframes startGameRight {
-  from {right: 85vh;visibility: visible;}
-  to {right: 0vh; visibility: visible;}
-}
-.myDIV:hover + .hide {
-  display: block;
-  color: red;
-}
-.myDIV{
-  background: -webkit-linear-gradient(left, rgb(36, 35, 35), rgb(235, 222, 222));
-  position: fixed;
-  right: 40px; 
-  top: 40px; 
-  width: 5vw; 
-  height: 5vw; 
-  border-radius: 50%;
-}
-.text{
-  padding-top: 1.2vw;  
-  text-align: center; 
-  font-size: 3vh; 
-  font-weight: bold;
-  color: red;
-}
-.dontShow{
-  display: none;
-}
-.clickwhite{
-  background-color: black;
-  color: white;
-  width: 5vh;
-  height: 5vh;
-  border-radius: 50% ;	
-  border: 2px solid white;
-}
-.clickblack{
-  background-color: white;
-  color: black;
-  width: 5vh;
-  height: 5vh;
-  border-radius: 50% ;	
-  padding:55px solid white;
+
+button{
+  min-width: 5vw; min-height: 8vh;  background: url("C:\Users\Yogev\source\repos\ProjectBackGammon\Client\src\assets\img\images.png") 
 }
 .categories {
   display: flex;
@@ -127,8 +45,6 @@
   background: -webkit-linear-gradient(top, rgb(173,125,45), rgba(173, 126, 45, 0.49));
   width: 65vw; 
   height: 74vh;
-  /* border-left: 3vw solid rgb(142, 91, 3); 
-  border-right: 3vw solid rgb(142, 91, 3);  */
  }
 .circle {
   height: 4vh;
@@ -141,6 +57,12 @@
   z-index: 5;
   object-position:  top;
   position: relative;
+}
+.cube {
+  position: fixed; width: 20vh; height: 20vh;
+  top: 50vh;
+  right: 53vw;
+  
 }
 .picesOfBoard{
   background: -webkit-linear-gradient(left, rgb(173,125,45), rgba(173, 126, 45, 0.49));
@@ -164,7 +86,6 @@
   width: 5vw;  
   text-align: center;
 }
-
 .divHelp{
   position: absolute;
   object-position: left;
@@ -248,6 +169,6 @@
   background-color: rgb(184, 152, 98);
   border-bottom: 25vh solid rgb(191, 86, 62);
 }   
-.chat{
-  background: -webkit-linear-gradient(left, black, white);
+.controll div{
+  display: flex; justify-content: center ; width: 6vw; height: 8vh; align-items: center;
 }

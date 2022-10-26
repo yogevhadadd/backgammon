@@ -7,12 +7,11 @@ A part of my full-stack development course, our final project was to develop a g
 ## Micro-Services
 ### Login Micro-Service
 
+### Contacts Micro-Serivce
 
 ### Chat Micro-Service
-
 
 ### Game Micro-Serivce
 
 
-### Contacts Micro-Serivce
 

@@ -44,6 +44,9 @@ export class ChatConnectionService {
         this.messages = data;
     });
   }
+  public firstChat(){
+    
+  }
   public async sendMessage(msg: string, displayName: string) {
     this._hubConnection?.invoke("SendMessage", msg, displayName);
   }

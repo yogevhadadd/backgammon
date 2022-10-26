@@ -50,10 +50,7 @@ namespace Game.Service
             {
                 cubesTemporary[i] = 0;
             }
-            if (colorPlayer == "black")
-                colorPlayer = "white";
-            else
-                colorPlayer = "black";
+           
             ChangeListEndTurn();
             SaveBoard();
         }
@@ -67,9 +64,12 @@ namespace Game.Service
         }
         public bool FinishTurn()
         {
-            for(int i = 0;i < cubesTemporary.Length; i++)
+            for (int i = 0;i < cubesTemporary.Length; i++)
             {
-                if (cubesTemporary[i] != 0) return false;
+                if (cubesTemporary[i] != 0)
+                {
+                    return false;
+                }
             }
             if (displayNameTurn == displayNameFirst)
             {
@@ -78,6 +78,13 @@ namespace Game.Service
             else displayNameTurn = displayNameFirst;
             SaveDetails();
             return true;
+        }
+        public void ChangeColor()
+        {
+            if (colorPlayer == "black")
+                colorPlayer = "white";
+            else
+                colorPlayer = "black";
         }
         public int[] RoleCube()
         {

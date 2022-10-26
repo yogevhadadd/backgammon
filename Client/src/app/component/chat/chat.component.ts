@@ -8,8 +8,8 @@ import { ChatConnectionService } from 'src/app/hub-connection/chat/chat-connecti
 })
 export class ChatComponent implements OnInit {
   @Input() game:string = "";
-  @Input() chatUser = "";
-  chatOrGame:boolean = true;
+  @Input() chatUser = "Chat";
+  @Input() chatOrGame:boolean = true;
   constructor(public _hubChat: ChatConnectionService) {}
   user:any = "";
   ngOnInit(): void {
@@ -21,7 +21,8 @@ export class ChatComponent implements OnInit {
     }
   }
   public ChangGame(){
-    this.chatOrGame = false;
+    this.chatOrGame = !this.chatOrGame;
+    
   }
   public SendGameRequest(){
     this._hubChat.SendGameRequest(this.chatUser)

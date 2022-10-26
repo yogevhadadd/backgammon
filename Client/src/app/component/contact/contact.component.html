@@ -1,33 +1,44 @@
 
-<div class="page-container">
-  <div class="shadow">
-    <div class="contact-container">
-      <div class="title"><div>Contact</div></div>
-      <div style="overflow-y: scroll; height: 74vh;">  
-        <div *ngFor="let contact of _hubContact.listContact">
-          <div *ngIf="contact.online && contact.displayName != myUser" (click) = "Chat(contact.displayName, contact.profilePic)" id="divImg">
-            <div style="width: 35%;"><img class="bigImg" src="{{contact?.profilePic}}"></div>
-            <div class="row displayName">
-              <div><div>{{contact.displayName}}</div></div>
-            </div>
-            <div class="circle">
-              <div class="green"></div>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+  <div class="page-container">
+    <div class="shadow">
+      <div class="contact-container">
+        <div class="title">
+          <div>Contact </div>
+          <button (click)="ChangGame()"><i class="material-icons" style="font-size: 6vh;">cached</i></button>
+        </div>
+        <div style="background-color: rgb(189, 212, 232); overflow-y: scroll; height: 82vh; box-shadow:  0 20px 25px rgb(116 111 111 / 50%);">  
+          <div *ngFor="let contact of _hubContact.listContact">
+            <div *ngIf="contact.online && contact.displayName != myUser" (click) = "Chat(contact.displayName, contact.profilePic)" id="divImg">
+              <div style="width: 35%;"><img class="bigImg" src="{{contact?.profilePic}}"></div>
+              <div class="row displayName">
+                <div><div>{{contact.displayName}}</div></div>
+              </div>
+              <div class="circle">
+                <div class="green"></div>
+              </div>
             </div>
           </div>
-        </div>
-        <div *ngFor="let contact of _hubContact.listContact">
-          <div *ngIf="!contact.online && contact.displayName != myUser" (click) = "Chat(contact.displayName, contact.profilePic)" id="divImg" style="margin-top: 0.5vh; display: flex; flex-direction: row;  align-items: center;">
-            <div style="width: 35%;"><img class="bigImg" src="{{contact?.profilePic}}"></div>
-            <div class="row displayName">
-              <div><div >{{contact.displayName}}</div></div>
-            </div>
-            <div class="circle" >
-              <div style="background-color: gray;"></div>
+          <div *ngFor="let contact of _hubContact.listContact">
+            <div *ngIf="!contact.online && contact.displayName != myUser" (click) = "Chat(contact.displayName, contact.profilePic)" id="divImg" style="margin-top: 0.5vh; display: flex; flex-direction: row;  align-items: center;">
+              <div style="width: 35%;"><img class="bigImg" src="{{contact?.profilePic}}"></div>
+              <div class="row displayName">
+                <div><div >{{contact.displayName}}</div></div>
+              </div>
+              <div class="circle" >
+                <div style="background-color: gray;"></div>
+              </div>
             </div>
           </div>
-        </div>
-      </div> 
+        </div> 
+      </div>
+      <app-chat [chatOrGame] = "chatOrGame" [chatUser] = "chatUser" style=" height: 80vh;"></app-chat>
     </div>
-    <app-chat [chatUser] = "chatUser" style=" height: 80vh;"></app-chat>
-  </div>
-</div> 
+  </div> 
+</body>

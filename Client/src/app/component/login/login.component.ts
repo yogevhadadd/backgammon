@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     this.userService.login(this.loginRequest)
     this.loginRequest = new Login()
-    // window.location.reload()
   }
 
   register = (files:any) => {

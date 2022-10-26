@@ -31,22 +31,27 @@
 #divImg{
     margin-top: 0.5vh; display: flex; flex-direction: row;  align-items: center;
 }
+button{
+    background-color: rgb(94, 112, 128);
+    border: 0;
+    border-radius: 50%;
+}
 ::-webkit-scrollbar{
     display: none; 
-  }
-
+}
 .contact-container{
     width: 20vw; height: 90vh; background-color:rgb(189, 212, 232);
     box-shadow:  0 20px 25px rgba(0,0,0,.5);
-    z-index: 333;
+    z-index: 111;
 }
 .title{
     min-height: 8vh; background-color: rgb(94, 112, 128); display: flex; align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
 }
 .title div{
     display: flex; align-items: center; font-size: 3.5vh ; margin-left: 2vh;
 }
-
 .displayName{
     border-bottom: 0.2vh solid rgb(185, 182, 182) ;width: 63%;height: 7vh;
 }

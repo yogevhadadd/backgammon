@@ -12,26 +12,23 @@ input{
   margin-right: 2vh;
 }
 button{
-  text-align: center; 
-  font-size: 2vh; 
-  font-weight: bold; 
-  width: 2.5vw;
-  height: 2.5vw;
-  border-radius: 50%;
+  height: 5.5vh;
   margin-right: 1vh;
-  border: 0.2vh solid black;
+  border: 0;
+  background-color: rgb(187 195 201) ;
+  margin-left: 2vw;
 }
 button:hover{
-  background-color: rgb(126, 184, 126);
+  color: rgba(255, 255, 255, 0.619);
 }
 .messageContainer{
   max-height: 76.3vh;min-height: 74.3vh; overflow-y: scroll;
 
 }
 #sendMessage{
-  display: flex; width: 65vw; justify-content: center; background-color: rgb(94, 112, 128); height: 10vh;
+  display: flex; width: 65vw; justify-content: center; background-color: rgb(187 195 201); height: 10vh;
   align-items: center;
-  box-shadow:  0 -4px 20px rgba(0,0,0,.6);
+  box-shadow:  0 -4px 20px rgb(203 195 195 / 60%);
 }
 #againtsUser{
   display: flex;
@@ -39,8 +36,10 @@ button:hover{
   text-align: center; 
   width: 65vw; 
   min-height: 8vh;
-  background-color: rgb(231, 231, 234);
+  background-color: rgb(94, 112, 128);
   align-items: center;
+  box-shadow:  -7px 16px 25px rgba(0,0,0,.6);
+  background-color: rgb(203 195 195 / 60%);
 }
 #onlyChat{
   display: flex;
@@ -51,7 +50,6 @@ button:hover{
 }
 body{
   box-shadow:  -7px 16px 25px rgba(0,0,0,.6);
-
 }
 .mainDiv{
   display: flex;

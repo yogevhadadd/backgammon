@@ -3,11 +3,14 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
   <div id="againtsUser">
     <p>{{chatUser}}</p>
-    <img src="{{_hubChat.firstPic}}">
+    <div *ngIf="chatUser != 'Chat'">
+      <img  src="{{_hubChat.firstPic}}">
+    </div>
   </div>
   <div *ngIf="chatOrGame" id="onlyChat">
     <div class="messageContainer">
@@ -25,11 +28,9 @@
       </div>
     </div>
     <div id="sendMessage">
-      <button  class="glyphicon glyphicon-play" (click)="sendMessage(nameInput.value)"></button>
+      <button (click)="sendMessage(nameInput.value)"><i class="material-icons">send</i></button>
       <label for="name"></label>
-      <input type="text" name="name" #nameInput (keydown.enter)="sendMessage(nameInput.value)"/>
-      <img class="game" src="assets\img\backgammonkaplama(2).jpg"/>
-      <button (click)="ChangGame()"></button>
+      <input type="text" name="name"  #nameInput (keydown.enter)="sendMessage(nameInput.value)"/>
     </div>
   </div> 
   <div style="width: 65vw; height: 82vh;" *ngIf="!chatOrGame"> 

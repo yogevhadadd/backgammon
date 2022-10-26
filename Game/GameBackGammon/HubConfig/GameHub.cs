@@ -3,10 +3,6 @@ using Game.Service;
 using GameBackGammon.model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
-using RestSharp;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Game.HubConfig
 {
@@ -42,10 +38,12 @@ namespace Game.HubConfig
                     oneGame.FirstName, gameService.showOnMoveTemp);
                 if (gameService.EndGame())
                 {
+                    gameService = new GameService();
                     await Clients.Users(oneGame.FirstName, oneGame.SecondName).SendAsync("EndGame", gameService.colorPlayer);
                 }
                 if (gameService.FinishTurn())
                 {
+                    gameService.ChangeColor();
                     await Clients.Users(oneGame.FirstName, oneGame.SecondName).SendAsync("FinishTurn");
                     SaveGame();
                 }
@@ -123,6 +121,7 @@ namespace Game.HubConfig
             if (!gameService.CanMove())
             {
                 gameService.FinishTurn();
+                gameService.ChangeColor();
                 await Clients.Users(oneGame.FirstName, oneGame.SecondName).SendAsync("CanMove", gameService.cubesTemporary);
             }
         }
