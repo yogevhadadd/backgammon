@@ -33,8 +33,9 @@ export class ChatConnectionService {
       });
   }
   private registerOnServerEvents(): void {
-    this._hubConnection.on('ReceiveMessage', (data: any, firstPlayer: string, secondPlayer: string) => {
-      if(this.againtsUser == firstPlayer || this.againtsUser === secondPlayer)
+
+    
+    this._hubConnection.on('ReceiveMessage', (data: any) => {
         this.messages = data;
     });
     
@@ -44,9 +45,7 @@ export class ChatConnectionService {
         this.messages = data;
     });
   }
-  public firstChat(){
-    
-  }
+
   public async sendMessage(msg: string, displayName: string) {
     this._hubConnection?.invoke("SendMessage", msg, displayName);
   }

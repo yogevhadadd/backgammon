@@ -32,6 +32,8 @@ export class ContactConnectionService {
   private registerOnServerEvents(): void {
     this._hubConnection.on('SendListConnect', (listConnect: any) => {
         this.listContact = listConnect;
+        console.log(this.listContact)
+        console.log("dfghjhgfdsdfghjkjhgfdsdfghjkkkkkkhhhhhhhhhhhhhhhhh")
     });
   }
   public  async Start() {

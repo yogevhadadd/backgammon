@@ -1,5 +1,7 @@
 export class Contact {
-    displayName: string="";
+   
+    
+    isplayName: string="";
     profilePic:string="";
     online: boolean = true;
 }
